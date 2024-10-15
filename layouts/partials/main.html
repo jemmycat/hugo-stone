@@ -1,15 +1,5 @@
 <!-- Main Content Section -->
 <div class="main-content">
     <div class="no-posts">
-        <p>
-        <!-- 遍历全部 content/posts/*.md -->
-        <ul>
-        {{ range .Pages }}
-        <li>
-        <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} |  {{.Title}}</a>
-        </li>
-        {{ end }}
-        </ul>
-        </p>
     </div>
 </div>
