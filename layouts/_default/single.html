@@ -1,10 +1,39 @@
-{{ define "main" }}
-  <h1>{{ .Title }}</h1>
+<head>
+    {{ partial "head.html" . }}
+</head>
 
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-{{ end }}
+<body>
+    <div class="container">
+        <header>
+          {{ partial "header.html" . }}
+        </header>
+        <main>
+          <div class="main-wrapper">
+            {{ partial "sidebar.html"}}
+            <div class="main-content">
+              <div class="posts">
+                <header>
+                    <h1>{{ .Title }}</h1>
+                    <p>{{ .Date | dateFormat "January 2, 2006" }} · By {{ .Params.author }}</p>
+                </header>
+                
+                <main>
+                    <article>
+                        {{ .Content }}
+                    </article>
+                
+                    <section class="related-posts">
+                        <h3>Related Posts</h3>
+                        <ul>
+                            {{ range .Site.RegularPages }}
+                            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+                            {{ end }}
+                        </ul>
+                    </section>
+                </main>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+</body>
