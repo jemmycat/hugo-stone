@@ -88,12 +88,17 @@ body {
     background-color: #ffffff;
     padding: 10px;
     margin-bottom: 10px;
-    text-align: left;
+    text-align: center;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s;
     color: #000;
+}
+
+.sidebar-btn a {
+    text-decoration: none; 
+    color: inherit;  
 }
 
 .sidebar-btn:hover {

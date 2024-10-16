@@ -2,7 +2,6 @@
     {{ partial "head.html" . }}
 </head>
 
-<body>
     <div class="container">
         <header>
           {{ partial "header.html" . }}
@@ -13,24 +12,30 @@
             <div class="main-content">
               <div class="posts">
                 <header>
-                    <h1>{{ .Title }}</h1>
-                    <p>{{ .Date | dateFormat "January 2, 2006" }} · By {{ .Params.author }}</p>
+                    <h1 class="post-title">{{ .Title }}</h1>
+                    <p class="post-meta">{{ .Date | dateFormat "January 2, 2006" }} · By {{ .Params.author }}</p>
                 </header>
-                
-                <main>
                     <article>
-                        {{ .Content }}
+                        <article class="post">
+                          <section class="post-body">
+                            <p>{{ .Content }}</p>
+                          </section>
+                          <!-- <footer class="post-footer">
+                            <div class="post-stats">
+                              <span>阅读 64</span>
+                              <span>收藏 0</span>
+                              <span>评论 3</span>
+                              <span>赞 3</span>
+                            </div>
+                            <div class="post-actions">
+                              <span class="icon icon-share">🔗</span>
+                              <span class="icon icon-favorite">⭐</span>
+                              <span class="icon icon-like">👍</span>
+                              <span class="icon icon-comment">💬</span>
+                            </div>
+                          </footer> -->
+                        </article>
                     </article>
-                
-                    <section class="related-posts">
-                        <h3>Related Posts</h3>
-                        <ul>
-                            {{ range .Site.RegularPages }}
-                            <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-                            {{ end }}
-                        </ul>
-                    </section>
-                </main>
               </div>
             </div>
           </div>

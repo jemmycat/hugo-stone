@@ -1,11 +1,8 @@
-        <!-- Sidebar Menu -->
-        <div class="sidebar">
-            <button class="sidebar-btn">角色信息</button>
-            <button class="sidebar-btn">我的帖子</button>
-            <button class="sidebar-btn">我的动态</button>
-            <button class="sidebar-btn">我的运动</button>
-            <button class="sidebar-btn">我的图库</button>
-            <button class="sidebar-btn">我的收藏</button>
-            <button class="sidebar-btn">我看过的</button>
-            <button class="sidebar-btn">我的好友</button>
-        </div>
+<!-- Sidebar Menu -->
+<div class="sidebar">
+    {{ range site.Menus.main }}
+    <button class="sidebar-btn">
+        <a href="{{ .URL }}">{{ .Name }}</a>
+    </button>
+    {{ end }}
+</div>
