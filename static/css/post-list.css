@@ -19,16 +19,6 @@
   --box-shadow: 0 5px 15px rgba(0,0,0,.25);
 }
 
-
-
-
-
-html {
-  background-color: var(--bg-color);
-  font-family: "Computer Modern Serif", "FandolKai-Regular";
-  font-variant-numeric: oldstyle-nums;
-}
-
 a:link,
 a:visited {
     color: var(--body-color);
