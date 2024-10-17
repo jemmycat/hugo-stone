@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ range .Site.RegularPages }}
+{{ range where .Site.RegularPages  "Section" "posts"}}
 <article>
 
   <div class="post summary">
@@ -9,8 +9,7 @@
       </a>
   </div>
     <div class="post-text grow">
-    <!-- <div class="post-list"> -->
-      <!-- <div class="post-item"> -->
+
         <div class="post-title">
           <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
         </div>
@@ -37,9 +36,9 @@
                         <a class="category" href="{{ ( printf "categories/%s/" ( . | urlize ) ) | relLangURL }}">{{ . }}</a>
                     {{- end -}}
                 {{ end }}
-                {{ with .Params.tags }}
+                {{ with .Params.tags }}Tags：
                     {{- range $index, $el := . -}}
-                        <a class="tag" href="{{ ( printf "tags/%s/" ( . | urlize ) ) | relLangURL }}">{{ . }}</a>
+                    <a class="tag" href="{{ ( printf "tags/%s/" ( . | urlize ) ) | relLangURL }}">#{{ . }}</a> &nbsp;
                     {{- end -}}
                 {{ end }}
             </div>
