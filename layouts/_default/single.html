@@ -13,7 +13,7 @@
               <div class="posts">
                 <header>
                     <h1 class="post-title">{{ .Title }}</h1>
-                    <p class="post-meta">{{ .Date | dateFormat "January 2, 2006" }} · By {{ .Params.author }}</p>
+                    <p class="post-meta">{{ .Date.Format "2006-01-02" }} · By {{ .Site.Params.author }}</p>
                 </header>
                     <article>
                         <article class="post">
